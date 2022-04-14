@@ -71,6 +71,10 @@ const container = document.getElementById('canvas');
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(containerWidth, containerHeight);
 container.appendChild(renderer.domElement);
+
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.autoRotate = true;
+controls.enableDamping = true;
 camera.position.z = 5;
 
 function animate() {
@@ -79,6 +83,8 @@ function animate() {
     if (activeModel) {
         activeModel.rotation.y += 0.003;
     }
+
+    controls.update();
 
     renderer.render(scene, camera);
 };
