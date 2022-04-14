@@ -46,8 +46,10 @@ for (let i = 0; i < models.length; i++) {
 }
 
 
+const containerWidth = 1000;
+const containerHeight = 600;
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, containerWidth / containerHeight, 0.1, 1000);
 let activeModel = null;
 
 const buttons = document.getElementsByClassName('model-load-button');
@@ -67,7 +69,7 @@ Array.prototype.forEach.call(buttons, function (button) {
 
 const container = document.getElementById('canvas');
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize(1000, 600);
+renderer.setSize(containerWidth, containerHeight);
 container.appendChild(renderer.domElement);
 camera.position.z = 5;
 
